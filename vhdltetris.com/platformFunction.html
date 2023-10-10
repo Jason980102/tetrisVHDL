@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="Refresh" content="time">
+   <meta name="description" content="數位電路實驗期末專題--俄羅斯方塊">
+   <title>數位電路實驗期末專題--俄羅斯方塊</title>
+   <link rel="stylesheet" type="text/css" href="style.css">
+
+
+   <script src="showTime.js"></script>
+
+</head>
+
+<body onload="startTime()">
+<!--底層訊息-->
+<p style="position: fixed; z-index:5; bottom:-10px; padding: 10px; left:-2; right:0; color:#fff;background:#000; text-align:left; font-size:10px;">學校信箱：<a href="mailto:u11010012@go.utaipei.edu.tw">u11010012@go.utaipei.edu.tw</a><br>當前時間：<font color="＃0000FF"><span id="nowDateTimeSpan"></span></font></p>
+<!--標題-->
+<h1 style="position:static; color:#7B68EE; font-size : 6" align="center"><font color="white" font size = 7">數位電路實驗期末專題<br><font color="white" font size = 6></font></h1>
+
+<nav class="nav-box">
+    <input type="checkbox" id="menu">
+    <label for="menu" class="line">
+       <div class="menu"></div>
+    </label>
+    <div class="menu-list">
+        <div id="sidemenu-container"></div>
+        <script>
+            // 使用 JavaScript 加載 sidemenu.html 的內容並插入到 sidemenu-container 元素中
+            var sidemenuContainer = document.getElementById("sidemenu-container");
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "sidemenu.html", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    sidemenuContainer.innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        </script>
+  </div>
+</nav>
+
+<img src="tetris_background(1).jpg" alt="俄羅斯方塊背景" width="100%" height="30%">
+<br><br>
+
+<center><article align="center"><font color = "#000000" font size = "6" face="monospace">
+    <h2>實驗平台對應功能</h2>
+    <hr style="border-top:5px inset #0066CC;"/>
+    <div>
+        <img src="俄羅斯方塊使用元件圖示.jpg" alt="邏輯設計實驗平台對應的功能" width="780px" height="600px">
+    </div>
+</font>
+
+</article></center>
+
+<br><br>
+</body>
+
+</html>

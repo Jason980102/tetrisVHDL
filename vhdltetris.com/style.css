@@ -1,0 +1,460 @@
+/*background and side-menu */
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
+
+body {
+    z-index: -1;
+    margin: 0;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9pt;
+    min-height: 100vh;
+    line-height: 1.5;
+    background-color: #7e6ce4;
+    background-image:
+        radial-gradient(closest-side, rgba(110, 43, 197, 1), rgba(235, 105, 78, 0)),
+        radial-gradient(closest-side, rgba(243, 11, 164, 1), rgba(243, 11, 164, 0)),
+        radial-gradient(closest-side, rgba(254, 234, 131, 1), rgba(254, 234, 131, 0)),
+        radial-gradient(closest-side, rgba(77, 14, 248), rgba(170, 142, 245, 0)),
+        radial-gradient(closest-side, rgba(240, 78, 45), rgba(235, 105, 78, 0)),
+        radial-gradient(closest-side, rgba(230, 32, 236), rgba(235, 105, 78, 0)),
+
+        radial-gradient(closest-side, rgb(155, 236, 108), rgba(235, 105, 78, 0)),
+        radial-gradient(closest-side, rgba(231, 22, 7), rgba(235, 105, 78, 0)),
+        radial-gradient(closest-side, rgba(243, 228, 95), rgba(235, 105, 78, 0));
+    background-size:
+        130vmax 130vmax,
+        80vmax 80vmax,
+        90vmax 90vmax,
+        110vmax 110vmax,
+        90vmax 90vmax,
+        90vmax 90vmax,
+
+        100vmax 100vmax,
+        110vmax 110vmax,
+        90vmax 90vmax;
+    background-position:
+        -80vmax -80vmax,
+        60vmax -30vmax,
+        10vmax 10vmax,
+        -30vmax -10vmax,
+        50vmax 50vmax,
+        90vmax 90vmax,
+
+        10vmax 150vmax,
+        0vmax 160vmax,
+        -20vmax 90vmax;
+    background-repeat: no-repeat;
+    animation: 10s movement linear infinite;
+}
+
+body::after {
+    z-index: -1;
+    content: '';
+    display: block;
+    position: fixed;
+    width: 102%;
+    height: 102%;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+/*span{
+     position:relative;
+     z-index: 10;
+     display: flex;
+     min-height: 100vh;
+     width:  100%;
+     justify-content: center;
+     align-items: center;
+     font-size: 5rem;
+     color: transprant;
+     text-shadow:
+         0px 0px 1px rgba(255, 255, 255, .6),
+         0px 4px 4px rgba(0, 0, 0, .05);
+}*/
+
+@keyframes movement {
+
+    0%,
+    100% {
+        background-size:
+            130vmax 130vmax,
+            80vmax 80vmax,
+            90vmax 90vmax,
+            110vmax 110vmax,
+            90vmax 90vmax,
+            100vmax 100vmax,
+
+            120vmax 120vmax,
+            140vmax 140vmax,
+            90vmax 90vmax;
+        background-position:
+            -80vmax -80vmax,
+            60vmax -30vmax,
+            10vmax 15vmax,
+            -30vmax -10vmax,
+            50vmax 50vmax,
+            5vmax 45vmax,
+
+            40vmax 115vmax,
+            0vmax 160vmax,
+            -10vmax 100vmax;
+    }
+
+    25% {
+        background-size:
+            100vmax 100vmax,
+            90vmax 90vmax,
+            70vmax 70vmax,
+            90vmax 90vmax,
+            60vmax 60vmax,
+            80vmax 80vmax,
+
+            120vmax 120vmax,
+            100vmax 100vmax,
+            80vmax 80vmax;
+        background-position:
+            -60vmax -90vmax,
+            50vmax -40vmax,
+            0vmax -20vmax,
+            -40vmax -20vmax,
+            40vmax 60vmax,
+            -5vmax 35vmax,
+
+            30vmax 110vmax,
+            -10vmax 150vmax,
+            10vmax 115vmax;
+    }
+
+    50% {
+        background-size:
+            80vmax 80vmax,
+            110vmax 110vmax,
+            80vmax 80vmax,
+            60vmax 60vmax,
+            80vmax 80vmax,
+            90vmax 90vmax,
+
+            110vmax 110vmax,
+            110vmax 110vmax,
+            90vmax 90vmax;
+        background-position:
+            -50vmax -70vmax,
+            40vmax -30vmax,
+            -10vmax -5vmax,
+            20vmax 10vmax,
+            30vmax 70vmax,
+            -15vmax 20vmax,
+
+            20vmax 100vmax,
+            -20vmax 155vmax,
+            20vmax 100vmax;
+    }
+
+    75% {
+        background-size:
+            90vmax 90vmax,
+            90vmax 90vmax,
+            100vmax 100vmax,
+            90vmax 90vmax,
+            70vmax 70vmax,
+            90vmax 90vmax,
+
+            100vmax 100vmax,
+            100vmax 100vmax,
+            90vmax 90vmax;
+        background-position:
+            -50vmax -40vmax,
+            50vmax -30vmax,
+            -20vmax 10vmax,
+            -10vmax 10vmax,
+            40vmax 60vmax,
+            -20vmax 10vmax,
+
+            10vmax 90vmax,
+            -30vmax 170vmax,
+            10vmax 100vmax;
+    }
+}
+
+/*
+ 選單線
+ */
+.line {
+    z-index: 3;
+    border-radius: 0px;
+    width: 24px;
+    height: 28px;
+    background: black;
+    cursor: pointer;
+    display: block;
+    padding: 16px;
+    position: fixed;
+}
+
+.line .menu,
+.line .menu::before,
+.line .menu::after {
+    background: #ffffff;
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    transition: background ease .3s, top ease .3s .3s, transform ease .3s;
+    width: 20px;
+}
+
+.line .menu {
+    left: 18px;
+    top: 30px;
+}
+
+.line .menu::before {
+    top: -6px;
+}
+
+.line .menu::after {
+    top: 6px;
+}
+
+/*
+ 點選選單變叉叉
+ */
+#menu:checked+.line .menu {
+    background: transparent;
+}
+
+#menu:checked+.line .menu::before {
+    transform: rotate(45deg);
+}
+
+#menu:checked+.line .menu::after {
+    transform: rotate(-45deg);
+}
+
+#menu:checked+.line .menu::before,
+#menu:checked+.line .menu::after {
+    top: 0;
+    transition: top ease .3s, transform ease .3s .3s;
+}
+
+/*
+ 選單開合
+ */
+#menu:checked~.menu-list {
+    width: 30vh;
+    height: 100vh;
+    border-radius: 20px;
+}
+
+.menu-list {
+    width: 0%;
+    height: 100vh;
+    display: flex;
+    margin: 0 0px 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    padding-top: 60px;
+    position: fixed;
+    z-index: 2;
+    transition: all .6s;
+    overflow: hidden;
+    background: linear-gradient(to left top, #97cef0, #18104d);
+}
+
+.menu-list a {
+    text-align: left;
+    width: 300px;
+    height: 25px;
+    display: block;
+    padding: 15px;
+    color: #000000;
+    text-decoration: none;
+    position: relative;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.menu-list a .fa {
+    text-decoration: none;
+    margin-right: -1.1em;
+    transform: scale(0);
+    transition: .3s;
+}
+
+.menu-list li:hover .fa {
+    margin-right: 0em;
+    transform: scale(1);
+}
+
+.menu-list li:hover .fa {
+    position: relative;
+}
+
+.menu-list li:hover>a {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.menu-list li+li a::before {
+    content: '';
+    position: absolute;
+    border-top: 2px solid rgb(255, 255, 255, .4);
+    left: 10px;
+    right: 70px;
+    top: 0;
+}
+
+/*
+ 選單向外推
+ */
+.menu-list ul {
+    list-style: none;
+    margin-top: 1px;
+    margin-left: 1px;
+    padding: 0;
+    left: 100%;
+    width: 700px;
+    top: 6px;
+}
+
+/*
+ 隱藏核許框
+ */
+#menu {
+    display: none;
+}
+
+article {
+    margin: 0 auto;
+    max-width: 1000px;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+}
+
+article .p {
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 10px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #000;
+    color: black;
+    text-decoration-color: #000;
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-family: 'Noto Sans TC', sans-serif;
+    text-align: left;
+}
+
+article .div {
+    color: black;
+    text-decoration-color: #000;
+    font-size: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+article .a {
+    text-decoration: none;
+    color: blue;
+    text-decoration-color: #000;
+    font-size: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+article .a .fa {
+    text-decoration: none;
+    margin-right: -1.1em;
+    transform: scale(0);
+    transition: .3s;
+}
+
+article .a:hover .fa {
+    margin-right: 0em;
+    transform: scale(1);
+}
+
+article .a:hover .fa {
+    position: relative;
+}
+
+article .a:hover>a {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+article .a::before {
+    content: '';
+    position: absolute;
+    border-top: 2px solid rgb(255, 255, 255, .4);
+    left: 10px;
+    right: 70px;
+    top: 0;
+}
+
+article .ul {
+    margin-left: 50px;
+    margin-right: 65px;
+    /* padding-left: 40px; */
+    list-style-position: inside;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-size:40px;
+    color: #eca408;
+}
+
+article .b {
+    margin-left: 50px;
+    margin-right: 50px;
+    list-style-position: inside;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    font-size:40px;
+    color: #e69d15;
+}
+
+article .ul::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    width: calc(100% - 20px);
+    height: 100%;
+    /* box-shadow: #97cef0; */
+    background: rgb(11, 15, 238);
+    border-radius: 30px;
+    padding-bottom: 20px;
+    z-index: -1;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+article .li {
+    color: #ffffff;
+    list-style-type: disc;
+    font-weight: normal;
+    margin-right: 10px;
+    text-align: left;
+    font-size:20px;
+}
+
+article .mark{
+    color: #e69d15;
+    list-style-type: disc;
+    font-weight: normal;
+    margin-right: 10px;
+    text-align: left;
+    font-size:20px;
+}
+
+article .span{
+    color: #ffffff;
+    font-weight: normal;
+    font-size:20px;
+}

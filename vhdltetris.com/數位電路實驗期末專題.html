@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="Refresh" content="time">
+   <meta name="description" content="數位電路實驗期末專題--俄羅斯方塊">
+   <title>數位電路實驗期末專題--俄羅斯方塊</title>
+   <link rel="stylesheet" type="text/css" href="style.css">
+
+
+   <!--.instant-time-->
+   <script language="JavaScript">
+      function startTime(){   
+         var today=new Date();//定義日期物件   
+         var yyyy = today.getFullYear();//通過日期物件的getFullYear()方法返回年    
+         var MM = today.getMonth()+1;//通過日期物件的getMonth()方法返回年    
+         var dd = today.getDate();//通過日期物件的getDate()方法返回年     
+         var hh=today.getHours();//通過日期物件的getHours方法返回小時   
+         var mm=today.getMinutes();//通過日期物件的getMinutes方法返回分鐘   
+         var ss=today.getSeconds();//通過日期物件的getSeconds方法返回秒   
+         // 如果分鐘或小時的值小於10，則在其值前加0，比如如果時間是下午3點20分9秒的話，則顯示15：20：09   
+         MM=checkTime(MM);
+         dd=checkTime(dd);
+         mm=checkTime(mm);   
+         ss=checkTime(ss);    
+         var day; //用於儲存星期（getDay()方法得到星期編號）
+         if(today.getDay()==0)   day   =   "星期日 " 
+         if(today.getDay()==1)   day   =   "星期一 " 
+         if(today.getDay()==2)   day   =   "星期二 " 
+         if(today.getDay()==3)   day   =   "星期三 " 
+         if(today.getDay()==4)   day   =   "星期四 " 
+         if(today.getDay()==5)   day   =   "星期五 " 
+         if(today.getDay()==6)   day   =   "星期六 " 
+         document.getElementById('nowDateTimeSpan').innerHTML=yyyy+"-"+MM +"-"+ dd +" " + hh+":"+mm+":"+ss+"   " + day;   
+         setTimeout('startTime()',1000);//每一秒中重新載入startTime()方法 
+      }   
+
+        function checkTime(i){   
+            if (i<10){
+                i="0" + i;
+            }   
+                return i;
+        }  
+ 	</script>
+
+</head>
+
+<body onload="startTime()">
+<!--底層訊息-->
+<p style="position: fixed; z-index:5; bottom:-10px; padding: 10px; left:-2; right:0; color:#fff;background:#000; text-align:left; font-size:10px;">學校信箱：<a href="mailto:u11010012@go.utaipei.edu.tw">u11010012@go.utaipei.edu.tw</a><br>當前時間：<font color="＃0000FF"><span id="nowDateTimeSpan"></span></font></p>
+<!--標題-->
+<h1 style="position:static; color:#7B68EE; font-size : 6" align="center"><font color="white" font size = 7">數位電路實驗期末專題<br><font color="white" font size = 6></font></h1>
+
+<nav class="nav-box">
+    <input type="checkbox" id="menu">
+    <label for="menu" class="line">
+       <div class="menu"></div>
+    </label>
+    <div class="menu-list">
+        <ul>
+            <li align="center"><b><font size="3"><a href="index.html" style="color:rgb(255, 255, 255);"><i class="fa fa-users"></i>首頁</a></font></b></li>
+            <li align="center"><b><font size="3"><a href="俄羅斯方塊製作方法探討.html" style="color:rgb(255, 255, 255);"><i class="fa fa-chevron-circle-right"></i>方法探討</a></font></b></li>
+            <li align="center"><b><font size="3"><a href="俄羅斯方塊製作步驟.html" style="color:rgb(255, 255, 255);"><i class="fa fa-chevron-circle-right"></i>邏輯流程</a></font></b></li>
+            <li align="center"><b><font size="3"><a href="俄羅斯方塊平台功能.html" style="color:rgb(255, 255, 255);"><i class="fa fa-chevron-circle-right"></i>平台對應功能</a></font></b></li>
+            <li align="center"><b><font size="3"><a href="俄羅斯方塊VHDL程式.html" style="color:rgb(255, 255, 255);"><i class="fa fa-chevron-circle-right"></i>VHDL程式</a></font></b></li>
+        </ul>
+  </div>
+</nav>
+
+<center><article align="center"><font color = "#000000" font size = "6" face="monospace">
+    <h2>VHDL-俄羅斯方塊</h2>
+    <div class="video1">
+        <iframe align="center" width="700px" height="480px" src="https://www.youtube.com/embed/wjOby_lS1Ok? rel=0&autoplay=1&playlist=wjOby_lS1Ok&amp" autoplay="true"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen  ></iframe>
+    </div>
+    <hr style="border-top:5px inset #0066CC;"/>
+    <h3><font color = "#000000" font size = "3" face="微軟正黑體">
+      <ul><li>註：此專題使用的平台為LP-2900 CPLD 邏輯設計實驗平台， Altera Cyclone VE 的晶片板</li></ul></font>
+    </h3>
+    <p align="left"><b><font color = "blue" font size = "5">摘要：</font></b><br>Quartus II 操控邏輯設計實驗平台來實作世界知名遊戲——俄羅斯方塊，利用邏輯設計實驗平台中的各種元件，例如8x8顯示器用於顯示遊戲主畫面、七段顯示器用於顯示遊戲得分、LCD顯示器用於顯示規則等等，並利用VHDL程式及電路圖來將各種元件串聯，畫流程圖判斷遊戲執行時的步驟及條件。</p>
+    <p align="left"><b><font color = "blue" font size = "5">製作目的：</font></b><br>俄羅斯方塊是一款家喻戶曉的遊戲，因其具有數學性、動態性與知名度，成為遊戲程式設計經典的練習題材之一。</p>
+    <p align="left"><b><font color = "blue" font size = "5">機台介紹：</font></b><br>(截錄自LP-2900 CPLD 邏輯設計實驗平台及 Altera Cyclone VE 的晶片板使用手冊)<br>LP-2900 是力浦電子所生產的 FPGA 實驗平台，具有可更換的 FPGA 晶片板，支援各種不同廠牌，不同型號的 FPGA。<br>LP-2900 搭配使用 Altera Cyclone VE 
+        的晶片板，FPGA 型號為 5CEFA2F23C8，此晶片有 25,000 logic gates 可供使用，晶片板中有規劃之 I/O 腳位都有邏輯狀態燈可提供監視 I/O 狀態。<br>在 LP-2900 平台上有完整的實驗週邊，其中使用 10MHz 的系統頻率，提供輸入的介面有帶燈按鍵、指撥開關、彈跳按鍵、
+        3×4 鍵盤，提供輸出的介面有紅黃綠 LED 燈、6 位數七段顯示器、蜂鳴器、電子骰子、文字型 LCD、 8×8 點矩陣，另外還有 A/D 與 D/A 的實驗介面以及可與 8051 單晶片搭配做實驗。
+        <center><img src="邏輯設計實驗平台.jpg" alt="邏輯設計實驗平台" width="700px" height="500px"></center>
+    </p>
+</font>
+</article></center>
+
+<br><br>
+</body>
+
+</html>
+
+

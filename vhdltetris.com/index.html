@@ -1,0 +1,110 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Refresh" content="time">
+    <meta name="description" content="數位電路實驗期末專題--俄羅斯方塊">
+    <title>數位電路實驗期末專題--俄羅斯方塊</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="showTime.js"></script>
+
+</head>
+
+<body onload="startTime()">
+    <!--底層訊息-->
+    <p
+        style="position: fixed; z-index:5; bottom:-10px; padding: 10px; left:-2; right:0; color:#fff;background:#000; text-align:left; font-size:10px;">
+        學校信箱：<a href="mailto:u11010012@go.utaipei.edu.tw">u11010012@go.utaipei.edu.tw</a><br>當前時間：<font color="＃0000FF">
+            <span id="nowDateTimeSpan"></span>
+        </font>
+    </p>
+    <!--標題-->
+    <h1 style="position:static; color:#7B68EE; font-size : 6" align="center">
+        <font color="white" font size=7">數位電路實驗期末專題<br>
+            <font color="white" font size=6></font>
+    </h1>
+
+    <nav class="nav-box">
+        <input type="checkbox" id="menu">
+        <label for="menu" class="line">
+            <div class="menu"></div>
+        </label>
+        <div class="menu-list">
+            <div id="sidemenu-container"></div>
+            <script>
+                // 使用 JavaScript 加載 sidemenu.html 的內容並插入到 sidemenu-container 元素中
+                var sidemenuContainer = document.getElementById("sidemenu-container");
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "sidemenu.html", true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        sidemenuContainer.innerHTML = xhr.responseText;
+                    }
+                };
+                xhr.send();
+            </script>
+        </div>
+    </nav>
+    <div>
+        <img src="tetris_background.jpg" alt="俄羅斯方塊背景" width="100%" height="50%">
+    </div>
+    <br>
+    <article>
+        <font color="#000000" font size="6" face="monospace">
+            <h2>VHDL-俄羅斯方塊</h2>
+            <div class="video1">
+                <iframe align="center" width="700px" height="480px"
+                    src="https://www.youtube.com/embed/wjOby_lS1Ok? rel=0&autoplay=1&playlist=wjOby_lS1Ok&amp" autoplay
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+            <hr style="border-top:5px inset #0066CC;" />
+            <h3>
+                <font color="#000000" font size="3" face="微軟正黑體">
+                    <ul>
+                        註：此專題使用的平台為LP-2900 CPLD邏輯設計實驗平台，Altera Cyclone VE的晶片板
+                    </ul>
+                </font>
+            </h3>
+            <ul align="left" class="ul">
+                <b class="b">
+                    摘要：
+                </b><br>
+                <span class="span">
+                QuartusII操控邏輯設計實驗平台來實作世界知名遊戲——俄羅斯方塊，利用邏輯設計實驗平台中的各種元件，例如8x8顯示器用於顯示遊戲主畫面、七段顯示器用於顯示遊戲得分、LCD顯示器用於顯示規則等等，並利用VHDL程式及電路圖來將各種元件串聯，畫流程圖判斷遊戲執行時的步驟及條件。
+                </span> 
+            </ul>
+
+            <ul align="left" class="ul">
+                <b class="b">
+                    製作目的：
+                </b><br>
+                <span class="span">
+                俄羅斯方塊是一款家喻戶曉的遊戲，因其具有數學性、動態性與知名度，成為遊戲程式設計經典的練習題材之一。
+                </span>
+            </ul>
+
+            <ul class="ul">
+                <b class="b">
+                    機台介紹：
+                </b><br>
+                <span class="span">(截錄自LP-2900 CPLD設計實驗平台及Altera Cyclone VE晶片板使用手冊)</span><br>
+                <li class="li">LP-2900是力浦電子所生產的FPGA實驗平台，具有可更換的 FPGA 晶片板，支援各種不同廠牌，不同型號的FPGA。</li>
+                <li class="li">LP-2900搭配使用Altera Cyclone VE的晶片板，FPGA型號為5CEFA2F23C8，此晶片有25,000 logic
+                    gates可供使用，晶片板中有規劃之I/O腳位都有邏輯狀態燈可提供監視I/O狀態。</li>
+                <li class="li">
+                    在LP-2900平台上有完整的實驗週邊，其中使用10MHz的系統頻率，提供輸入的介面有帶燈按鍵、指撥開關、彈跳按鍵、3×4鍵盤，提供輸出的介面有紅黃綠LED燈、6位數七段顯示器、蜂鳴器、電子骰子、文字型LCD、8×8點矩陣，另外還有A/D與D/A的實驗介面以及可與
+                    8051 單晶片搭配做實驗。如下圖所示。</li>
+
+                <center><img src="邏輯設計實驗平台.jpg" alt="邏輯設計實驗平台" width="700px" height="500px"></center>
+            </ul>
+        </font>
+    </article>
+    <br><br>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Refresh" content="time">
+    <meta name="description" content="數位電路實驗期末專題--俄羅斯方塊">
+    <title>數位電路實驗期末專題--俄羅斯方塊</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="showTime.js"></script>
+
+</head>
+
+<body onload="startTime()">
+    <!--底層訊息-->
+    <p
+        style="position: fixed; z-index:5; bottom:-10px; padding: 10px; left:-2; right:0; color:#fff;background:#000; text-align:left; font-size:10px;">
+        學校信箱：<a href="mailto:u11010012@go.utaipei.edu.tw">u11010012@go.utaipei.edu.tw</a><br>當前時間：<font color="＃0000FF">
+            <span id="nowDateTimeSpan"></span>
+        </font>
+    </p>
+    <!--標題-->
+    <h1 style="position:static; color:#7B68EE; font-size : 6" align="center">
+        <font color="white" font size=7">數位電路實驗期末專題<br>
+            <font color="white" font size=6></font>
+    </h1>
+
+    <nav class="nav-box">
+        <input type="checkbox" id="menu">
+        <label for="menu" class="line">
+            <div class="menu"></div>
+        </label>
+        <div class="menu-list">
+            <div id="sidemenu-container"></div>
+            <script>
+                // 使用 JavaScript 加載 sidemenu.html 的內容並插入到 sidemenu-container 元素中
+                var sidemenuContainer = document.getElementById("sidemenu-container");
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "sidemenu.html", true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        sidemenuContainer.innerHTML = xhr.responseText;
+                    }
+                };
+                xhr.send();
+            </script>
+        </div>
+    </nav>
+
+    <img src="tetris_background(1).jpg" alt="俄羅斯方塊背景" width="100%" height="30%">
+    <br><br>
+
+    <center>
+        <article align="center">
+            <font color="#000000" font size="6" face="monospace">
+                <h2>VHDL程式範例</h2>
+                <hr style="border-top:5px inset #0066CC;" />
+                <div class="div">
+                    由於程式眾多，因此我把程式碼都丟在github上面，在這裡以這個程式的原理來敘述。
+                    <br>
+                    在這邊以本次做的專案所使用的元件數量為例，總共分成8區：
+                    <br>
+                    <ul align="left">
+                        <li><a href="#main_code" class="a"><i class="fa fa-external-link-square"></i>主遊戲畫面</a></li><br>
+                        <li><a href="#show_score" class="a"><i class="fa fa-external-link-square"></i>顯示分數</a></li><br>
+                        <li><a href="#random_cube" class="a"><i class="fa fa-external-link-square"></i>遊戲中下一個方塊形狀</a>
+                        </li><br>
+                        <li><a href="#lcd" class="a"><i class="fa fa-external-link-square"></i>顯示規則</a></li><br>
+                        <li><a href="#ryg_led" class="a"><i class="fa fa-external-link-square"></i>消除方塊列數</a></li><br>
+                        <li><a href="#y_led" class="a"><i class="fa fa-external-link-square"></i>遊戲當前累積分數</a></li><br>
+                        <li><a href="#buzzer" class="a"><i class="fa fa-external-link-square"></i>遊戲主要音樂</a></li><br>
+                    </ul>
+                    <!--8×8 點矩陣顯示器-->
+                    <p class="p" id="main_code"><b>
+                            <font size="5">主遊戲畫面 連結：<a
+                                    href="https://github.com/brianchou452/tetris/blob/main/main_game/main_game.vhd"
+                                    class="a"><i class="fa fa-link"></i>
+                                    <font size="5">點我</font>
+                                </a></font>
+                        </b>
+                        <br>
+                        Main
+                        code主要是以8*8顯示器來作為主軸元件，用以顯示主遊戲畫面，而此程式是整個俄羅斯方塊VHDL中最重要且最底層的部分，可以說沒有這層的基礎，其他程式基本上是沒辦法串連的。<br>而此處的元件有個重要的訊號：消除信號及消除列數信號，消除信號是要判斷消除是否成立，消除列數的信號則是要判斷消除了幾列，因為分數為隨著消除幾列而遞增，因此這也是必要的元素。
+                    </p>
+
+                    <!--6位數七段顯示器-->
+                    <p class="p" id="show_score"><b>
+                            <font size="5">顯示分數 連結：<a
+                                    href="https://github.com/brianchou452/tetris/blob/main/main_game/main_game.vhd"
+                                    class="a"><i class="fa fa-link"></i>
+                                    <font size="5">點我</font>
+                                </a></font>
+                        </b>
+                        <br>
+                        顯示分數主要是以6位數七段顯示器來作為主軸元件，用以顯示主遊戲當前累積的分數。而這部分我將其分成三個檔案：第一個程式為接收由8*8顯示器來的訊號，
+                    </p>
+
+                    <!--電子骰子-->
+                    <p class="p" id="random_cube"><b>
+                            <font size="5">遊戲中下一個方塊形狀 連結：<a
+                                    href="https://github.com/brianchou452/tetris/blob/main/main_game/main_game.vhd"
+                                    class="a"><i class="fa fa-link"></i>
+                                    <font size="5">點我</font>
+                                </a></font>
+                        </b>
+                        <br>
+                        遊戲中下一個方塊形狀主要是以8*8顯示器來作為主軸元件，用以顯示主遊戲畫面，並且此程式是整個俄羅斯方塊VHDL中最重要且最底層的部分，可以說沒有這層的基礎，其他程式基本上是沒辦法串連的。因為假設當一排都填滿時
+                    </p>
+
+                    <!--文字型 LCD-->
+                    <p class="p" id="lcd"><b>
+                            <font size="5">顯示規則 連結：<a
+                                    href="https://github.com/brianchou452/tetris/blob/main/main_game/main_game.vhd"
+                                    class="a"><i class="fa fa-link"></i>
+                                    <font size="5">點我</font>
+                                </a></font>
+                        </b>
+                        <br>
+                        Main
+                        code主要是以8*8顯示器來作為主軸，用以顯示主遊戲畫面，並且此程式是整個俄羅斯方塊VHDL中最重要且最底層的部分，可以說沒有這層的基礎，其他程式基本上是沒辦法串連的。因為假設當一排都填滿時
+                    </p>
+
+                    <!--紅黃綠 LED 燈-->
+                    <p class="p" id="ryg_led"><b>
+                            <font size="5">消除方塊列數 連結：<a
+                                    href="https://github.com/brianchou452/tetris/blob/main/main_game/main_game.vhd"
+                                    class="a"><i class="fa fa-link"></i>
+                                    <font size="5">點我</font>
+                                </a></font>
+                        </b>
+                        <br>
+                        Main
+                        code主要是以8*8顯示器來作為主軸，用以顯示主遊戲畫面，並且此程式是整個俄羅斯方塊VHDL中最重要且最底層的部分，可以說沒有這層的基礎，其他程式基本上是沒辦法串連的。因為假設當一排都填滿時
+                    </p>
+
+                    <!--黃色 LED 燈-->
+                    <p class="p" id="y_led"><b>
+                            <font size="5">遊戲當前累積分數 連結：<a
+                                    href="https://github.com/brianchou452/tetris/blob/main/main_game/main_game.vhd"
+                                    class="a"><i class="fa fa-link"></i>
+                                    <font size="5">點我</font>
+                                </a></font>
+                        </b>
+                        <br>
+                        Main
+                        code主要是以8*8顯示器來作為主軸，用以顯示主遊戲畫面，並且此程式是整個俄羅斯方塊VHDL中最重要且最底層的部分，可以說沒有這層的基礎，其他程式基本上是沒辦法串連的。因為假設當一排都填滿時
+                    </p>
+
+                    <!--蜂鳴器-->
+                    <p class="p" id="buzzer"><b>
+                            <font size="5">遊戲主要音樂 連結：<a
+                                    href="https://github.com/brianchou452/tetris/blob/main/main_game/main_game.vhd"
+                                    class="a"><i class="fa fa-link"></i>
+                                    <font size="5">點我</font>
+                                </a></font>
+                        </b>
+                        <br>
+                        Main
+                        code主要是以8*8顯示器來作為主軸，用以顯示主遊戲畫面，並且此程式是整個俄羅斯方塊VHDL中最重要且最底層的部分，可以說沒有這層的基礎，其他程式基本上是沒辦法串連的。因為假設當一排都填滿時
+                    </p>
+                </div>
+            </font>
+
+        </article>
+    </center>
+
+    <br><br>
+</body>
+
+</html>
